@@ -189,4 +189,12 @@ body {
   .login .form-control input {
     width: 30vw;
   }
+.login .form-control p{
+      color: rgb(255, 56, 56);
+      font-style: italic;
+      outline-color: blanchedalmond;
+      background-color:black;
+      
+  }
+
 }
