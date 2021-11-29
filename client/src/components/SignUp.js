@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import Axios from 'axios' ;
+import Header from './Header';
+import Destinations from './Destinations';
 
 const SignUp = () => {
 
@@ -112,6 +114,7 @@ const SignUp = () => {
 
     return (
         <>
+        <Header/>
           <section className='showcase login'>
             <div className='showcase-overlay'>
 
@@ -174,6 +177,7 @@ const SignUp = () => {
               </form>
             </div>
           </section>
+          <Destinations/>
         </>
       )
 }

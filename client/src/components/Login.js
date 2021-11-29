@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Axios from 'axios' ;
+import {Link } from "react-router-dom"
+import Header from './Header';
+import Destinations from './Destinations';
 
 const Login = () => {
 
@@ -26,6 +29,16 @@ const Login = () => {
       
     });
 };
+
+
+// useEffect(() => {
+//   Axios.get("http://localhost:3001/api/login").then((response) =>{
+//     if(response.data.loggedIn === true) {
+//       setLoginStatus(response.data.user[0].username);
+//     }
+//   });
+
+// }, [])
 
 //   //creating a state to hold the user entered value
 //   const initialValues = { email: "", password: ""};
@@ -95,7 +108,9 @@ const Login = () => {
               )} */
 
     return (
+      
         <>
+        <Header/>
           <section className='showcase login'>
             <div className='showcase-overlay'>
               
@@ -130,9 +145,24 @@ const Login = () => {
 
                 <button type='submit' onClick={submitLogin}>Log In</button>
                 <p>{loginStatus}</p>
+
+                <br/>
+                
+                <Link to="../admin"><button>
+              Admin 
+            </button>
+            </Link>
+
+            <Link to="../member"><button>
+              Member 
+            </button>
+            </Link>
+
               </form>
             </div>
           </section>
+          <div>{loginStatus}</div>
+          <Destinations/>
         </>
       )
 }

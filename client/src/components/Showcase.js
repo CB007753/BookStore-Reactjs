@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Destinations from './Destinations';
+import Header from './Header';
 
 //book icon(logo) styled component
 const BookImage = styled.img`
@@ -10,8 +12,12 @@ const BookImage = styled.img`
 
 const Showcase = () => {
     return (
+      <>
+      <Header/>
         <section className='showcase'>
+          
           <div className='showcase-overlay'>
+            
           
             <h1>Showcase Book Shop</h1>
             <p>
@@ -20,6 +26,8 @@ const Showcase = () => {
             <BookImage src ="book-icon.png"/>
           </div>
         </section>
+        <Destinations/>
+        </>
       )
 }
 

@@ -49,23 +49,39 @@ app.post("/api/login", (req,res) => {
     const Email = req.body.Email
     const Password = req.body.Password
 
-    db.query(
-        "SELECT * FROM userrole WHERE Email = ? AND Password = ?",
-        [Email,Password],
-        (err, result) => {
-            if(err){
+    const sqlLogin ="SELECT * FROM userrole WHERE Email = ? AND Password = ?;";
+
+    db.query(sqlLogin, [Email, Password] , (err, result) => {
+
+         if(err){
                 res.send({err: err});
             }
-
-           else if(result.length > 0){
+            else if(result.length > 0){
                 res.send(result);
-
-            } else {
+            }
+            else {
                 res.send({message: "Wrong Email/Password!"});
             }
-        }
 
-    );
+    });
+
+    // db.query(
+    //     "SELECT * FROM userrole WHERE Email = ? AND Password = ?;",
+    //     [Email,Password],
+    //     (err, result) => {
+    //         if(err){
+    //             res.send({err: err});
+    //         }
+
+    //        else if(result.length > 0){
+    //             res.send(result);
+
+    //         } else {
+    //             res.send({message: "Wrong Email/Password!"});
+    //         }
+    //     }
+
+    // );
 });
 
 
