@@ -196,5 +196,17 @@ body {
       background-color:black;
       
   }
+  .login .form-control d{
+    color: rgb(253, 253, 253);
+    font-style: italic;
+    font-size: 125%;
+    outline-color: blanchedalmond;
+    background-color:transparent;
+    
+}
+
+
+
+ 
 
 }

@@ -7,13 +7,18 @@ import Footer from './components/Footer';
 import Error from "./components/Error";
 import Admin from "./Admin";
 import Member from "./Member";
+import AdminLogin from "./components/admin_components/AdminLogin";
+import Main from "./Main";
+
 
 function App() {
   return (
   <Router>
     
     <Routes>
-      <Route exact path='/' element={<Showcase />}/>
+      <Route exact path='/' element={<Main />}/>
+
+      <Route exact path='/showcase' element={<Showcase />}/>
 
       <Route path='/login' element={<Login />}/>
  
@@ -22,8 +27,11 @@ function App() {
       <Route path='/admin' element={<Admin />}/>
 
       <Route path='/member' element={<Member />}/>
+
+      <Route path='/adminlogin' element={<AdminLogin />}/>
         
-      {/* <Route path='/*' element={<Error />}/> */}
+      <Route path='/*' element={<Error />}/> 
+
     </Routes>
     
     
