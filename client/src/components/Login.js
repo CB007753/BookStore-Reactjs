@@ -6,19 +6,21 @@ import Header from './Header';
 import Destinations from './Destinations';
 
 const Login = () => {
+  
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
+  // "" --> ''
   
 
-  
+
   Axios.defaults.withCredentials = true;
 
    //will be called whenever user press login button
-   const submitLogin = () => {
-    
-    Axios.post('http://localhost:3001/api/login', {
+   const submitLogin = (e) => {
+    e.preventDefault()
+    Axios.post("http://localhost:3001/api/login", {
       
       Email: email, 
       Password: password, 
@@ -29,7 +31,7 @@ const Login = () => {
             setLoginStatus(response.data.message);
 
       }else{
-        setLoginStatus(response.data[0].email);
+        setLoginStatus(response.data[0].Email);
       }
       
     });
@@ -38,7 +40,7 @@ const Login = () => {
 useEffect(() => {
   Axios.get("http://localhost:3001/api/login").then((response) => {
     if (response.data.loggedIn == true) {
-      setLoginStatus(response.data.user[0].email);
+      setLoginStatus(response.data.user[0].Email);
            
     }
   });
@@ -65,7 +67,9 @@ useEffect(() => {
                   onChange={(e) =>{
                     setEmail(e.target.value)
                 } } 
-                  required/>
+                  required
+                  autoComplete='username'
+                  />
 
                   
 
@@ -78,7 +82,7 @@ useEffect(() => {
                   setPassword(e.target.value)
               } }
                  required
-                 autoComplete='on'
+                 autoComplete='current-password'
                  />
 
                 
@@ -88,18 +92,18 @@ useEffect(() => {
 
 
                 <br/>
-                <Link to="../adminlogin">
+                {/* <Link to="../adminlogin">
                 <button>
               Admin 
             </button>
-            </Link>
+            </Link> */}
                 
                 
-                {/* <Link to="../admin"><button>
+                 <Link to="../admin"><button>
               Admin 
             </button>
             </Link>
-
+          {/*
             <Link to="../member"><button>
               Member 
             </button>

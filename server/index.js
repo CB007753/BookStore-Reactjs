@@ -83,9 +83,18 @@ app.post("/api/insert", (req,res) => {
 
 });
 
-//CRUD OPERATION- View All Function
-//CRUD OPERATION- Delete Function
-//CRUD OPERATION- Update Function
+//CRUD OPERATION- View All -Function
+//View All Members
+app.get('/api/viewmembers', (req,res)=> {
+
+    const sqlSelect= "SELECT * FROM member";
+
+    db.query(sqlSelect, (err,result)=>{
+        res.send(result);
+    });
+});
+//CRUD OPERATION- Delete -Function
+//CRUD OPERATION- Update -Function
 
 
 
@@ -103,17 +112,21 @@ app.post("/api/login", (req,res) => {
             }
 
             if(result.length > 0){
+               
                 bcrypt.compare(Password, result[0].password, (error,response) =>{
 
                     if(response){
                         req.session.user = result;//holds/contains the result that we fetch
                         console.log(req.session.user);
                         res.send(result);
+                        res.send({message: "Login Success !"});
                     } else {
+                       
                         res.send({message: "Wrong email / password Combination !"}); 
                     }
                 });
-            } else{
+            }
+             else{
                 res.send({ message: "User doesn't exists"});
             }
             
@@ -166,6 +179,8 @@ app.post("/api/adminlogin", (req,res) => {
 
 });
 
+
+//req-require , res-response
 app.get("/api/login", (req, res) => {
     if (req.session.user) {
       res.send({ loggedIn: true, user: req.session.user });

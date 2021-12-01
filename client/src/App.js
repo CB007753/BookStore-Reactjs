@@ -9,6 +9,8 @@ import Admin from "./Admin";
 import Member from "./Member";
 import AdminLogin from "./components/admin_components/AdminLogin";
 import Main from "./Main";
+import MemberDetails from "./components/admin_components/MemberDetails";
+
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
       <Route path='/member' element={<Member />}/>
 
       <Route path='/adminlogin' element={<AdminLogin />}/>
+
+      <Route path='/memberdetails' element={<MemberDetails />}/>
         
       <Route path='/*' element={<Error />}/> 
 

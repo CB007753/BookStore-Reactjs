@@ -29,8 +29,12 @@ const TopBar = () => {
 
             <nav className='navbar'>
                 <ul>
-                        <Link className='links' to='/editProfile'>
-                            Edit Profile
+                        <Link className='links' to='/memberdetails'>
+                            View Members
+                        </Link>
+
+                        <Link className='links' to='/bookdetails'>
+                            View Books
                         </Link>
 
                         <Link className='links' to='/'>
